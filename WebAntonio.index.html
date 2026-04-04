@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Te creamos tus páginas web</title>
+  <meta
+    name="description"
+    content="Creamos páginas web modernas, rápidas y profesionales para negocios, emprendedores y empresas."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #050816;
+      --bg-2: #0b1228;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-2: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.75);
+      --muted-2: rgba(255, 255, 255, 0.55);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --grad: linear-gradient(90deg, #ffe600, #ff7a00, #ff2f92, #5a5cff, #00cfff);
+      --grad-2: linear-gradient(135deg, #ffe600, #ff7a00, #ff2f92);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 47, 146, 0.16), transparent 20%),
+        radial-gradient(circle at 80% 10%, rgba(0, 207, 255, 0.14), transparent 18%),
+        radial-gradient(circle at 50% 100%, rgba(255, 230, 0, 0.10), transparent 18%),
+        linear-gradient(180deg, #03050f 0%, #071126 45%, #040611 100%);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), 92%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 3;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      text-align: center;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 54px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.04rem;
+    }
+
+    .gradient-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn-primary {
+      background: var(--grad-2);
+      color: #111;
+      box-shadow: 0 12px 30px rgba(255, 120, 0, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.14);
+      color: white;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      background: rgba(4, 9, 22, 0.55);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-wrap {
+      width: min(var(--max), 92%);
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #ffe600;
+    }
+
+    .menu-btn {
+      display: none;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 130px 0 70px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .wave {
+      position: absolute;
+      width: 155%;
+      left: -18%;
+      border-radius: 40%;
+      filter: saturate(1.15) blur(1px);
+      opacity: 0.95;
+      will-change: transform;
+    }
+
+    .wave1 {
+      height: 52%;
+      bottom: -5%;
+      background: linear-gradient(90deg, #ffe600 0%, #ff9f00 13%, #ff2f92 28%, #6a32ff 45%, #00b7ff 62%, #35f0d2 79%, #ffe600 100%);
+      clip-path: polygon(0% 84%, 8% 75%, 18% 68%, 29% 69%, 39% 78%, 48% 89%, 59% 96%, 70% 93%, 80% 82%, 90% 71%, 100% 72%, 100% 100%, 0% 100%);
+      animation: waveMove1 10s ease-in-out infinite alternate;
+    }
+
+    .wave2 {
+      height: 42%;
+      bottom: 7%;
+      background: linear-gradient(90deg, #ff2f92 0%, #8a41ff 18%, #00a8ff 38%, #43ffd7 58%, #fff100 77%, #ff7a00 100%);
+      clip-path: polygon(0% 80%, 10% 70%, 20% 60%, 31% 56%, 42% 63%, 53% 77%, 64% 90%, 75% 98%, 87% 96%, 96% 86%, 100% 76%, 100% 100%, 0% 100%);
+      opacity: 0.88;
+      animation: waveMove2 12s ease-in-out infinite alternate;
+    }
+
+    .wave3 {
+      height: 34%;
+      bottom: 18%;
+      background: linear-gradient(90deg, #ffdf00 0%, #ff7f00 16%, #ff2f92 31%, #4962ff 48%, #00c7ff 65%, #5affda 84%, #ffe600 100%);
+      clip-path: polygon(0% 85%, 12% 75%, 24% 62%, 36% 54%, 48% 56%, 60% 69%, 71% 84%, 82% 96%, 92% 100%, 100% 94%, 100% 100%, 0% 100%);
+      opacity: 0.82;
+      animation: waveMove3 13s ease-in-out infinite alternate;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      box-shadow:
+        inset -10px -14px 24px rgba(0,0,0,0.24),
+        inset 8px 8px 18px rgba(255,255,255,0.32),
+        0 20px 36px rgba(0,0,0,0.22);
+      z-index: 2;
+      animation: floatOrb linear infinite;
+      will-change: transform;
+    }
+
+    .orb::after {
+      content: "";
+      position: absolute;
+      width: 28%;
+      height: 28%;
+      top: 16%;
+      left: 18%;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.42);
+      filter: blur(2px);
+    }
+
+    .orb1 {
+      width: 110px;
+      height: 110px;
+      top: 12%;
+      right: 18%;
+      background: radial-gradient(circle at 30% 30%, #fff4a2, #ffb100 58%, #ff6800 100%);
+      animation-duration: 8s;
+    }
+
+    .orb2 {
+      width: 88px;
+      height: 88px;
+      top: 30%;
+      right: 6%;
+      background: radial-gradient(circle at 30% 30%, #ffb6df, #ff2d87 58%, #7a2fff 100%);
+      animation-duration: 7s;
+    }
+
+    .orb3 {
+      width: 96px;
+      height: 96px;
+      top: 18%;
+      left: 8%;
+      background: radial-gradient(circle at 30% 30%, #efff96, #30e6d6 55%, #3c61ff 100%);
+      animation-duration: 9s;
+    }
+
+    .orb4 {
+      width: 60px;
+      height: 60px;
+      top: 46%;
+      left: 5%;
+      background: radial-gradient(circle at 30% 30%, #fff0a0, #ffb900 58%, #ff7a00 100%);
+      animation-duration: 6s;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-card {
+      padding: 42px;
+      border-radius: 34px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      line-height: 0.94;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.32);
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      max-width: 700px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .hero-contact {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 11px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.92);
+      font-size: 0.95rem;
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 26px;
+      border-radius: 28px;
+    }
+
+    .panel h3 {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+    }
+
+    .panel-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .panel-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      padding: 18px 12px;
+      border-radius: 20px;
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .stat-box span {
+      color: var(--muted-2);
+      font-size: 0.92rem;
+    }
+
+    /* CARDS */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      padding: 28px;
+      border-radius: 26px;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-weight: 900;
+      color: #111;
+      background: var(--grad-2);
+    }
+
+    .card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project {
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .project-thumb {
+      height: 240px;
+      position: relative;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 20%),
+        linear-gradient(135deg, #1b0f58 0%, #123276 30%, #0f7dd8 58%, #21d3c8 82%, #ffe600 100%);
+      overflow: hidden;
+    }
+
+    .project-thumb::before {
+      content: "";
+      position: absolute;
+      width: 140%;
+      height: 70%;
+      left: -10%;
+      bottom: -10%;
+      background: linear-gradient(90deg, #ff2f92, #6f2fff, #00a8ff, #46ffd7, #ffe600);
+      clip-path: polygon(0% 80%, 10% 67%, 21% 59%, 33% 61%, 45% 72%, 57% 86%, 68% 96%, 79% 98%, 89% 90%, 100% 76%, 100% 100%, 0% 100%);
+      opacity: 0.95;
+    }
+
+    .project-thumb::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      right: 22px;
+      top: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffdca0, #ff7a00 60%, #ff2f92 100%);
+      box-shadow:
+        inset -10px -14px 20px rgba(0,0,0,0.24),
+        inset 6px 6px 14px rgba(255,255,255,0.25);
+    }
+
+    .project-body {
+      padding: 22px;
+    }
+
+    .project-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .tag-small {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.88);
+    }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      position: relative;
+      padding: 30px;
+      border-radius: 28px;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+    }
+
+    .price-card.featured {
+      transform: scale(1.03);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)),
+        rgba(8, 14, 35, 0.55);
+      border-color: rgba(255,255,255,0.20);
+    }
+
+    .badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--grad-2);
+      color: #111;
+      font-weight: 900;
+      font-size: 0.8rem;
+    }
+
+    .price-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .price-desc {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 2.7rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .price span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted-2);
+    }
+
+    .price-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .price-list div {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
+    }
+
+    /* TESTIMONIOS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial {
+      padding: 28px;
+      border-radius: 26px;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+    }
+
+    .stars {
+      margin-bottom: 16px;
+      color: #ffe600;
+      letter-spacing: 2px;
+    }
+
+    .testimonial p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .testimonial span {
+      color: var(--muted-2);
+      font-size: 0.92rem;
+    }
+
+    /* CONTACTO */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-info,
+    .contact-form {
+      padding: 32px;
+      border-radius: 30px;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social-link {
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      font-weight: 700;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .input,
+    .textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      border-radius: 16px;
+      padding: 15px 16px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .input::placeholder,
+    .textarea::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+
+    .textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    /* CTA FINAL */
+    .cta-box {
+      padding: 42px;
+      border-radius: 34px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 14px;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 34px 0 42px;
+      text-align: center;
+      color: rgba(255,255,255,0.62);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* BOTON WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25D366;
+      color: white;
+      font-weight: 900;
+      font-size: 24px;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.28);
+      z-index: 1001;
+      transition: transform .25s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    /* SCROLL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* PARALLAX */
+    .parallax {
+      transition: transform .12s linear;
+      will-change: transform;
+    }
+
+    @keyframes waveMove1 {
+      0% { transform: translate(0, 0) scale(1.02); }
+      100% { transform: translate(-18px, -14px) scale(1.06); }
+    }
+
+    @keyframes waveMove2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(14px, 12px) scale(1.04); }
+    }
+
+    @keyframes waveMove3 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-12px, -12px) scale(1.05); }
+    }
+
+    @keyframes floatOrb {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(8px, -8px); }
+      50%  { transform: translate(-4px, -16px); }
+      75%  { transform: translate(10px, -6px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* MOBILE */
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .portfolio-grid,
+      .pricing-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: rgba(4, 9, 22, 0.95);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding: 10px 4%;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .hero-card,
+      .panel,
+      .card,
+      .price-card,
+      .testimonial,
+      .contact-info,
+      .contact-form,
+      .cta-box {
+        padding: 22px;
+      }
+
+      .grid-3,
+      .portfolio-grid,
+      .pricing-grid,
+      .testimonials-grid,
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .orb1 { width: 78px; height: 78px; }
+      .orb2 { width: 62px; height: 62px; }
+      .orb3 { width: 72px; height: 72px; }
+      .orb4 { width: 48px; height: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+<div class="logo" style="line-height:1; margin-bottom:6px;">
+  <span>TuWebsite</span>
+  <span class="gradient-text" style="display:block; font-size:12px;">
+    Studio Eduardo Antonio Eugenio Crispin 
+  </span>
+</div>
+   <button class="menu-btn" id="menuBtn">Menú</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#portfolio">Portafolio</a>
+        <a href="#precios">Precios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="inicio">
+    <div class="hero-bg" id="scene">
+      <div class="wave wave1 parallax" data-speed="10"></div>
+      <div class="wave wave2 parallax" data-speed="16"></div>
+      <div class="wave wave3 parallax" data-speed="22"></div>
+
+      <div class="orb orb1 parallax" data-speed="12"></div>
+      <div class="orb orb2 parallax" data-speed="18"></div>
+      <div class="orb orb3 parallax" data-speed="10"></div>
+      <div class="orb orb4 parallax" data-speed="20"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card glass reveal">
+          <div class="hero-tag">AGENCIA DIGITAL · DISEÑO WEB PREMIUM</div>
+
+          <h1>Te creamos tus <span class="gradient-text">páginas web</span></h1>
+
+          <p>
+            Diseñamos páginas web modernas, rápidas y profesionales para negocios,
+            emprendedores y empresas que quieren verse mejor, transmitir confianza
+            y conseguir más clientes por internet.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/34600111222" target="_blank">WhatsApp</a>
+            <a class="btn btn-secondary" href="#portfolio">Ver trabajos</a>
+          </div>
+
+          <div class="hero-contact">
+            <a class="chip" href="https://wa.me/34600111222" target="_blank">WhatsApp</a>
+            <a class="chip" href="https://instagram.com/tuusuario" target="_blank">Instagram</a>
+            <a class="chip" href="mailto:tuemail@correo.com">Correo</a>
+            <a class="chip" href="https://facebook.com/tuusuario" target="_blank">Facebook</a>
+          </div>
+        </div>
+
+        <div class="side-stack reveal">
+          <div class="panel glass">
+            <h3>Lo que hacemos</h3>
+            <div class="panel-list">
+              <div class="panel-item">Landing pages para captar clientes</div>
+              <div class="panel-item">Webs para negocios, empresas y marcas personales</div>
+              <div class="panel-item">Tiendas online y catálogos</div>
+              <div class="panel-item">Integración con WhatsApp, Instagram y formularios</div>
+            </div>
+          </div>
+
+          <div class="panel glass">
+            <div class="stat-grid">
+              <div class="stat-box">
+                <strong>100%</strong>
+                <span>Responsive</span>
+              </div>
+              <div class="stat-box">
+                <strong>Pro</strong>
+                <span>Diseño</span>
+              </div>
+              <div class="stat-box">
+                <strong>24/7</strong>
+                <span>Online</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="servicios">
+    <div class="container">
+      <h2 class="section-title reveal">Servicios que ofrecemos</h2>
+      <p class="section-subtitle reveal">
+        Creamos soluciones web con diseño atractivo y estructura pensada para
+        convertir visitas en clientes.
+      </p>
+
+      <div class="grid-3">
+        <article class="card reveal">
+          <div class="icon-box">01</div>
+          <h3>Landing pages</h3>
+          <p>
+            Páginas enfocadas en vender servicios, captar leads y generar mensajes
+            por WhatsApp o formularios.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="icon-box">02</div>
+          <h3>Webs para negocios</h3>
+          <p>
+            Diseños para barberías, restaurantes, abogados, doctores, tiendas,
+            marcas personales y más.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="icon-box">03</div>
+          <h3>Tiendas y catálogos</h3>
+          <p>
+            Muestra tus productos o servicios de forma profesional y facilita
+            el contacto o la compra.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio">
+    <div class="container">
+      <h2 class="section-title reveal">Portafolio</h2>
+      <p class="section-subtitle reveal">
+        Aquí puedes mostrar ejemplos de trabajos para que tus clientes vean
+        el nivel visual y estilo que ofreces.
+      </p>
+
+      <div class="portfolio-grid">
+        <article class="project reveal">
+          <div class="project-thumb"></div>
+          <div class="project-body">
+            <h3>Web para restaurante</h3>
+            <p>
+              Página elegante para menú, reservas, ubicación y contacto rápido.
+            </p>
+            <span class="tag-small">Restaurantes</span>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-thumb"></div>
+          <div class="project-body">
+            <h3>Web para barbería</h3>
+            <p>
+              Diseño moderno con galería, precios, servicios y botón de reserva.
+            </p>
+            <span class="tag-small">Barberías</span>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-thumb"></div>
+          <div class="project-body">
+            <h3>Landing para marca personal</h3>
+            <p>
+              Perfecta para freelancers, coaches o creadores que quieren verse pro.
+            </p>
+            <span class="tag-small">Marca personal</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="precios">
+    <div class="container">
+      <h2 class="section-title reveal">Planes y precios</h2>
+      <p class="section-subtitle reveal">
+        Cambia estos precios por los tuyos reales. Déjalos claros para que el cliente
+        entienda rápido qué incluye cada opción.
+      </p>
+
+      <div class="pricing-grid">
+        <article class="price-card reveal">
+          <h3>Plan básico</h3>
+          <p class="price-desc">Para empezar con presencia profesional en internet.</p>
+          <div class="price">$99 <span>/ desde</span></div>
+
+          <div class="price-list">
+            <div>1 página principal</div>
+            <div>Diseño responsive</div>
+            <div>Botón de WhatsApp</div>
+            <div>Formulario de contacto</div>
+          </div>
+
+          <a class="btn btn-secondary btn-block" href="https://wa.me/34600111222" target="_blank">Solicitar</a>
+        </article>
+
+        <article class="price-card featured reveal">
+          <div class="badge">POPULAR</div>
+          <h3>Plan premium</h3>
+          <p class="price-desc">Ideal para negocios que quieren verse más serios.</p>
+          <div class="price">$199 <span>/ desde</span></div>
+
+          <div class="price-list">
+            <div>Hasta 5 secciones</div>
+            <div>Diseño premium</div>
+            <div>WhatsApp + Instagram</div>
+            <div>Galería o portafolio</div>
+            <div>Formulario de contacto</div>
+          </div>
+
+          <a class="btn btn-primary btn-block" href="https://wa.me/34600111222" target="_blank">Elegir premium</a>
+        </article>
+
+        <article class="price-card reveal">
+          <h3>Plan negocio</h3>
+          <p class="price-desc">Para empresas o marcas que necesitan más contenido.</p>
+          <div class="price">$349 <span>/ desde</span></div>
+
+          <div class="price-list">
+            <div>Más secciones y extras</div>
+            <div>Catálogo o tienda básica</div>
+            <div>Diseño personalizado</div>
+            <div>Integración de redes</div>
+            <div>Mayor presencia profesional</div>
+          </div>
+
+          <a class="btn btn-secondary btn-block" href="https://wa.me/34600111222" target="_blank">Solicitar</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonios">
+    <div class="container">
+      <h2 class="section-title reveal">Lo que dicen nuestros clientes</h2>
+      <p class="section-subtitle reveal">
+        Puedes cambiar estos testimonios por reales cuando cierres tus primeros proyectos.
+      </p>
+
+      <div class="testimonials-grid">
+        <article class="testimonial reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “Nos encantó el diseño. La página quedó moderna, rápida y mucho más profesional
+            que lo que teníamos antes.”
+          </p>
+          <strong>Laura Gómez</strong>
+          <span>Negocio local</span>
+        </article>
+
+        <article class="testimonial reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “La web nos ayudó a vernos mejor frente a nuestros clientes y a recibir más
+            mensajes por WhatsApp.”
+          </p>
+          <strong>Daniel Ruiz</strong>
+          <span>Emprendedor</span>
+        </article>
+
+        <article class="testimonial reveal">
+          <div class="stars">★★★★★</div>
+          <p>
+            “Muy buen trabajo, diseño limpio, moderno y justo lo que necesitábamos para
+            mostrar nuestros servicios.”
+          </p>
+          <strong>María Torres</strong>
+          <span>Marca personal</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <div class="container">
+      <h2 class="section-title reveal">Contacto</h2>
+      <p class="section-subtitle reveal">
+        Cambia tus datos y deja esta sección lista para que te escriban clientes.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info glass reveal">
+          <h3>Hablemos de tu proyecto</h3>
+          <p>
+            Si quieres una página web moderna para tu negocio, escríbenos y te ayudamos
+            a crear una solución profesional y atractiva.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">WhatsApp: +34 600 111 222</div>
+            <div class="contact-item">Correo: tuemail@correo.com</div>
+            <div class="contact-item">Instagram: @tuusuario</div>
+            <div class="contact-item">Facebook: /tuusuario</div>
+          </div>
+
+          <div class="socials">
+            <a class="social-link" href="https://wa.me/34600111222" target="_blank">WhatsApp</a>
+            <a class="social-link" href="https://instagram.com/tuusuario" target="_blank">Instagram</a>
+            <a class="social-link" href="mailto:tuemail@correo.com">Correo</a>
+            <a class="social-link" href="https://facebook.com/tuusuario" target="_blank">Facebook</a>
+          </div>
+        </div>
+
+        <div class="contact-form glass reveal">
+          <h3>Solicita tu página web</h3>
+
+          <form class="form-grid" onsubmit="sendToWhatsApp(event)">
+            <input class="input" id="name" type="text" placeholder="Tu nombre" required />
+            <input class="input" id="business" type="text" placeholder="Tu negocio" required />
+            <input class="input" id="phone" type="text" placeholder="Tu teléfono" required />
+            <textarea class="textarea" id="message" placeholder="Cuéntanos qué tipo de página necesitas"></textarea>
+            <button class="btn btn-primary btn-block" type="submit">Enviar por WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-box glass reveal">
+        <h2>¿Listo para tener una web profesional?</h2>
+        <p>
+          Escríbenos hoy y te ayudamos a crear una página moderna, atractiva
+          y pensada para captar clientes.
+        </p>
+
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://wa.me/34600111222" target="_blank">Hablar por WhatsApp</a>
+          <a class="btn btn-secondary" href="mailto:tuemail@correo.com">Enviar correo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Tu Website · Creamos páginas web modernas para negocios y emprendedores
+  </footer>
+
+  <a href="https://wa.me/34600111222" class="whatsapp-float" target="_blank">WA</a>
+
+  <script>
+    // menú móvil
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    // animaciones al hacer scroll
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // parallax con mouse
+    const scene = document.getElementById("scene");
+    const layers = document.querySelectorAll(".parallax");
+
+    scene.addEventListener("mousemove", (e) => {
+      const x = e.clientX / window.innerWidth - 0.5;
+      const y = e.clientY / window.innerHeight - 0.5;
+
+      layers.forEach(layer => {
+        const speed = Number(layer.dataset.speed);
+        const moveX = x * speed;
+        const moveY = y * speed;
+        layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    });
+
+    scene.addEventListener("mouseleave", () => {
+      layers.forEach(layer => {
+        layer.style.transform = "translate(0px, 0px)";
+      });
+    });
+
+    // enviar formulario a WhatsApp
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const business = document.getElementById("business").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const text =
+        `Hola, quiero información sobre una página web.%0A%0A` +
+        `Nombre: ${encodeURIComponent(name)}%0A` +
+        `Negocio: ${encodeURIComponent(business)}%0A` +
+        `Teléfono: ${encodeURIComponent(phone)}%0A` +
+        `Mensaje: ${encodeURIComponent(message)}`;
+
+      const whatsappNumber = "34600111222";
+      window.open(`https://wa.me/${whatsappNumber}?text=${text}`, "_blank");
+    }
+  </script>
+</body>
+</html>
