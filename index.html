@@ -132,7 +132,6 @@
       width: 100%;
     }
 
-    /* NAV */
     .nav {
       position: fixed;
       inset: 0 0 auto 0;
@@ -150,6 +149,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      position: relative;
     }
 
     .logo {
@@ -157,6 +157,15 @@
       font-weight: 900;
       letter-spacing: 0.4px;
       white-space: nowrap;
+      line-height: 1;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 12px;
+      margin-top: 6px;
+      color: var(--muted);
+      font-weight: 700;
     }
 
     .logo span {
@@ -190,7 +199,6 @@
       font-weight: 700;
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       position: relative;
@@ -198,109 +206,6 @@
       align-items: center;
       overflow: hidden;
       padding: 130px 0 70px;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .wave {
-      position: absolute;
-      width: 155%;
-      left: -18%;
-      border-radius: 40%;
-      filter: saturate(1.15) blur(1px);
-      opacity: 0.95;
-      will-change: transform;
-    }
-
-    .wave1 {
-      height: 52%;
-      bottom: -5%;
-      background: linear-gradient(90deg, #ffe600 0%, #ff9f00 13%, #ff2f92 28%, #6a32ff 45%, #00b7ff 62%, #35f0d2 79%, #ffe600 100%);
-      clip-path: polygon(0% 84%, 8% 75%, 18% 68%, 29% 69%, 39% 78%, 48% 89%, 59% 96%, 70% 93%, 80% 82%, 90% 71%, 100% 72%, 100% 100%, 0% 100%);
-      animation: waveMove1 10s ease-in-out infinite alternate;
-    }
-
-    .wave2 {
-      height: 42%;
-      bottom: 7%;
-      background: linear-gradient(90deg, #ff2f92 0%, #8a41ff 18%, #00a8ff 38%, #43ffd7 58%, #fff100 77%, #ff7a00 100%);
-      clip-path: polygon(0% 80%, 10% 70%, 20% 60%, 31% 56%, 42% 63%, 53% 77%, 64% 90%, 75% 98%, 87% 96%, 96% 86%, 100% 76%, 100% 100%, 0% 100%);
-      opacity: 0.88;
-      animation: waveMove2 12s ease-in-out infinite alternate;
-    }
-
-    .wave3 {
-      height: 34%;
-      bottom: 18%;
-      background: linear-gradient(90deg, #ffdf00 0%, #ff7f00 16%, #ff2f92 31%, #4962ff 48%, #00c7ff 65%, #5affda 84%, #ffe600 100%);
-      clip-path: polygon(0% 85%, 12% 75%, 24% 62%, 36% 54%, 48% 56%, 60% 69%, 71% 84%, 82% 96%, 92% 100%, 100% 94%, 100% 100%, 0% 100%);
-      opacity: 0.82;
-      animation: waveMove3 13s ease-in-out infinite alternate;
-    }
-
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      box-shadow:
-        inset -10px -14px 24px rgba(0,0,0,0.24),
-        inset 8px 8px 18px rgba(255,255,255,0.32),
-        0 20px 36px rgba(0,0,0,0.22);
-      z-index: 2;
-      animation: floatOrb linear infinite;
-      will-change: transform;
-    }
-
-    .orb::after {
-      content: "";
-      position: absolute;
-      width: 28%;
-      height: 28%;
-      top: 16%;
-      left: 18%;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.42);
-      filter: blur(2px);
-    }
-
-    .orb1 {
-      width: 110px;
-      height: 110px;
-      top: 12%;
-      right: 18%;
-      background: radial-gradient(circle at 30% 30%, #fff4a2, #ffb100 58%, #ff6800 100%);
-      animation-duration: 8s;
-    }
-
-    .orb2 {
-      width: 88px;
-      height: 88px;
-      top: 30%;
-      right: 6%;
-      background: radial-gradient(circle at 30% 30%, #ffb6df, #ff2d87 58%, #7a2fff 100%);
-      animation-duration: 7s;
-    }
-
-    .orb3 {
-      width: 96px;
-      height: 96px;
-      top: 18%;
-      left: 8%;
-      background: radial-gradient(circle at 30% 30%, #efff96, #30e6d6 55%, #3c61ff 100%);
-      animation-duration: 9s;
-    }
-
-    .orb4 {
-      width: 60px;
-      height: 60px;
-      top: 46%;
-      left: 5%;
-      background: radial-gradient(circle at 30% 30%, #fff0a0, #ffb900 58%, #ff7a00 100%);
-      animation-duration: 6s;
     }
 
     .hero-grid {
@@ -418,7 +323,6 @@
       font-size: 0.92rem;
     }
 
-    /* CARDS */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -475,24 +379,60 @@
       background: var(--panel);
       border: 1px solid rgba(255,255,255,0.10);
       box-shadow: 0 14px 40px rgba(0,0,0,0.18);
-      transition: transform .25s ease, border-color .25s ease;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
     }
 
     .project:hover {
       transform: translateY(-6px);
       border-color: rgba(255,255,255,0.18);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28);
     }
 
     .project-thumb {
-      height: 240px;
+      overflow: hidden;
       position: relative;
+    }
+
+    .project-photo {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .project-thumb-photo {
+      height: 360px;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 45%),
+        linear-gradient(180deg, #0f1529 0%, #070b16 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .project-thumb-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      border-radius: 18px;
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.35),
+        0 0 0 1px rgba(255,255,255,0.06);
+      transition: transform .35s ease;
+    }
+
+    .project-photo:hover .project-thumb-photo img {
+      transform: scale(1.02);
+    }
+
+    .project-thumb-demo {
+      height: 260px;
       background:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 20%),
         linear-gradient(135deg, #1b0f58 0%, #123276 30%, #0f7dd8 58%, #21d3c8 82%, #ffe600 100%);
-      overflow: hidden;
     }
 
-    .project-thumb::before {
+    .project-thumb-demo::before {
       content: "";
       position: absolute;
       width: 140%;
@@ -504,7 +444,7 @@
       opacity: 0.95;
     }
 
-    .project-thumb::after {
+    .project-thumb-demo::after {
       content: "";
       position: absolute;
       width: 90px;
@@ -516,6 +456,18 @@
       box-shadow:
         inset -10px -14px 20px rgba(0,0,0,0.24),
         inset 6px 6px 14px rgba(255,255,255,0.25);
+    }
+
+    .project-thumb-demo-2 {
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255,255,255,0.08), transparent 20%),
+        linear-gradient(135deg, #111827 0%, #1f2937 30%, #374151 58%, #f59e0b 100%);
+    }
+
+    .project-thumb-demo-3 {
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255,255,255,0.08), transparent 20%),
+        linear-gradient(135deg, #2a0845 0%, #6441a5 35%, #00c6ff 100%);
     }
 
     .project-body {
@@ -543,88 +495,14 @@
       color: rgba(255,255,255,0.88);
     }
 
-    /* PRICING */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .price-card {
-      position: relative;
-      padding: 30px;
-      border-radius: 28px;
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-    }
-
-    .price-card.featured {
-      transform: scale(1.03);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)),
-        rgba(8, 14, 35, 0.55);
-      border-color: rgba(255,255,255,0.20);
-    }
-
-    .badge {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--grad-2);
-      color: #111;
-      font-weight: 900;
-      font-size: 0.8rem;
-    }
-
-    .price-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-    }
-
-    .price-desc {
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .price {
-      font-size: 2.7rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-
-    .price span {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--muted-2);
-    }
-
-    .price-list {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .price-list div {
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.92);
-    }
-
-    /* TESTIMONIOS */
+    .pricing-grid,
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
+    .price-card,
     .testimonial {
       padding: 28px;
       border-radius: 26px;
@@ -634,29 +512,6 @@
       box-shadow: 0 14px 40px rgba(0,0,0,0.18);
     }
 
-    .stars {
-      margin-bottom: 16px;
-      color: #ffe600;
-      letter-spacing: 2px;
-    }
-
-    .testimonial p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
-    .testimonial strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .testimonial span {
-      color: var(--muted-2);
-      font-size: 0.92rem;
-    }
-
-    /* CONTACTO */
     .contact-grid {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -668,18 +523,6 @@
     .contact-form {
       padding: 32px;
       border-radius: 30px;
-    }
-
-    .contact-info h3,
-    .contact-form h3 {
-      font-size: 1.6rem;
-      margin-bottom: 14px;
-    }
-
-    .contact-info p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
     }
 
     .contact-list {
@@ -708,12 +551,6 @@
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(255,255,255,0.10);
       font-weight: 700;
-      transition: transform .25s ease, background .25s ease;
-    }
-
-    .social-link:hover {
-      transform: translateY(-4px);
-      background: rgba(255,255,255,0.12);
     }
 
     .form-grid {
@@ -743,7 +580,6 @@
       resize: vertical;
     }
 
-    /* CTA FINAL */
     .cta-box {
       padding: 42px;
       border-radius: 34px;
@@ -769,7 +605,6 @@
       flex-wrap: wrap;
     }
 
-    /* FOOTER */
     footer {
       padding: 34px 0 42px;
       text-align: center;
@@ -777,7 +612,6 @@
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    /* BOTON WHATSAPP */
     .whatsapp-float {
       position: fixed;
       right: 18px;
@@ -788,19 +622,15 @@
       display: grid;
       place-items: center;
       background: #25D366;
-      color: white;
-      font-weight: 900;
-      font-size: 24px;
       box-shadow: 0 18px 30px rgba(0,0,0,0.28);
       z-index: 1001;
-      transition: transform .25s ease;
     }
 
-    .whatsapp-float:hover {
-      transform: translateY(-4px) scale(1.03);
+    .whatsapp-float img {
+      width: 30px;
+      height: 30px;
     }
 
-    /* SCROLL ANIMATION */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -812,36 +642,6 @@
       transform: translateY(0);
     }
 
-    /* PARALLAX */
-    .parallax {
-      transition: transform .12s linear;
-      will-change: transform;
-    }
-
-    @keyframes waveMove1 {
-      0% { transform: translate(0, 0) scale(1.02); }
-      100% { transform: translate(-18px, -14px) scale(1.06); }
-    }
-
-    @keyframes waveMove2 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(14px, 12px) scale(1.04); }
-    }
-
-    @keyframes waveMove3 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-12px, -12px) scale(1.05); }
-    }
-
-    @keyframes floatOrb {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(8px, -8px); }
-      50%  { transform: translate(-4px, -16px); }
-      75%  { transform: translate(10px, -6px); }
-      100% { transform: translate(0, 0); }
-    }
-
-    /* MOBILE */
     @media (max-width: 1024px) {
       .hero-grid,
       .contact-grid {
@@ -853,6 +653,14 @@
       .pricing-grid,
       .testimonials-grid {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .project-thumb-photo {
+        height: 320px;
+      }
+
+      .project-thumb-demo {
+        height: 230px;
       }
     }
 
@@ -912,23 +720,63 @@
         letter-spacing: -1px;
       }
 
-      .orb1 { width: 78px; height: 78px; }
-      .orb2 { width: 62px; height: 62px; }
-      .orb3 { width: 72px; height: 72px; }
-      .orb4 { width: 48px; height: 48px; }
+      .project {
+        border-radius: 22px;
+      }
+
+      .project-thumb-photo {
+        height: 260px;
+        padding: 12px;
+        background: linear-gradient(180deg, #0d1326 0%, #060a14 100%);
+      }
+
+      .project-thumb-photo img {
+        border-radius: 14px;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .project-thumb-demo {
+        height: 180px;
+      }
+
+      .project-thumb-demo::after {
+        width: 72px;
+        height: 72px;
+        right: 16px;
+        top: 16px;
+      }
+
+      .project-body {
+        padding: 18px;
+      }
+
+      .project-body h3 {
+        font-size: 1.08rem;
+      }
+
+      .project-body p {
+        font-size: 0.96rem;
+        line-height: 1.55;
+      }
+
+      .tag-small {
+        font-size: 0.8rem;
+        padding: 7px 11px;
+      }
     }
   </style>
 </head>
 <body>
 
   <nav class="nav">
-<div class="logo" style="line-height:1; margin-bottom:6px;">
-  <span>TuWebsite</span>
-  <span class="gradient-text" style="display:block; font-size:12px;">
-    Studio Eduardo Antonio Eugenio Crispin 
-  </span>
-</div>
-   <button class="menu-btn" id="menuBtn">Menú</button>
+    <div class="nav-wrap">
+      <div class="logo">
+        <span>TuWebsite</span>
+        <small>Studio Eduardo Antonio Eugenio Crispin</small>
+      </div>
+
+      <button class="menu-btn" id="menuBtn">Menú</button>
 
       <div class="nav-links" id="navLinks">
         <a href="#inicio">Inicio</a>
@@ -942,40 +790,25 @@
   </nav>
 
   <header class="hero" id="inicio">
-    <div class="hero-bg" id="scene">
-      <div class="wave wave1 parallax" data-speed="10"></div>
-      <div class="wave wave2 parallax" data-speed="16"></div>
-      <div class="wave wave3 parallax" data-speed="22"></div>
-
-      <div class="orb orb1 parallax" data-speed="12"></div>
-      <div class="orb orb2 parallax" data-speed="18"></div>
-      <div class="orb orb3 parallax" data-speed="10"></div>
-      <div class="orb orb4 parallax" data-speed="20"></div>
-    </div>
-
     <div class="container">
       <div class="hero-grid">
         <div class="hero-card glass reveal">
           <div class="hero-tag">AGENCIA DIGITAL · DISEÑO WEB PREMIUM</div>
-
           <h1>Te creamos tus <span class="gradient-text">páginas web</span></h1>
-
           <p>
-            Diseñamos páginas web modernas, rápidas y profesionales para negocios,
-            emprendedores y empresas que quieren verse mejor, transmitir confianza
-            y conseguir más clientes por internet.
+            Diseñamos páginas web modernas, rápidas y profesionales para negocios, emprendedores y empresas que quieren verse mejor, transmitir confianza y conseguir más clientes por internet.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/34600111222" target="_blank">WhatsApp</a>
+            <a class="btn btn-primary" href="https://wa.me/34600111222" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             <a class="btn btn-secondary" href="#portfolio">Ver trabajos</a>
           </div>
 
           <div class="hero-contact">
-            <a class="chip" href="https://wa.me/34600111222" target="_blank">WhatsApp</a>
-            <a class="chip" href="https://instagram.com/tuusuario" target="_blank">Instagram</a>
+            <a class="chip" href="https://wa.me/34600111222" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="chip" href="https://instagram.com/tuusuario" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a class="chip" href="mailto:tuemail@correo.com">Correo</a>
-            <a class="chip" href="https://facebook.com/tuusuario" target="_blank">Facebook</a>
+            <a class="chip" href="https://facebook.com/tuusuario" target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
         </div>
 
@@ -992,18 +825,9 @@
 
           <div class="panel glass">
             <div class="stat-grid">
-              <div class="stat-box">
-                <strong>100%</strong>
-                <span>Responsive</span>
-              </div>
-              <div class="stat-box">
-                <strong>Pro</strong>
-                <span>Diseño</span>
-              </div>
-              <div class="stat-box">
-                <strong>24/7</strong>
-                <span>Online</span>
-              </div>
+              <div class="stat-box"><strong>100%</strong><span>Responsive</span></div>
+              <div class="stat-box"><strong>Pro</strong><span>Diseño</span></div>
+              <div class="stat-box"><strong>24/7</strong><span>Online</span></div>
             </div>
           </div>
         </div>
@@ -1015,36 +839,26 @@
     <div class="container">
       <h2 class="section-title reveal">Servicios que ofrecemos</h2>
       <p class="section-subtitle reveal">
-        Creamos soluciones web con diseño atractivo y estructura pensada para
-        convertir visitas en clientes.
+        Creamos soluciones web con diseño atractivo y estructura pensada para convertir visitas en clientes.
       </p>
 
       <div class="grid-3">
         <article class="card reveal">
           <div class="icon-box">01</div>
           <h3>Landing pages</h3>
-          <p>
-            Páginas enfocadas en vender servicios, captar leads y generar mensajes
-            por WhatsApp o formularios.
-          </p>
+          <p>Páginas enfocadas en vender servicios, captar leads y generar mensajes por WhatsApp o formularios.</p>
         </article>
 
         <article class="card reveal">
           <div class="icon-box">02</div>
           <h3>Webs para negocios</h3>
-          <p>
-            Diseños para barberías, restaurantes, abogados, doctores, tiendas,
-            marcas personales y más.
-          </p>
+          <p>Diseños para barberías, restaurantes, abogados, doctores, tiendas, marcas personales y más.</p>
         </article>
 
         <article class="card reveal">
           <div class="icon-box">03</div>
           <h3>Tiendas y catálogos</h3>
-          <p>
-            Muestra tus productos o servicios de forma profesional y facilita
-            el contacto o la compra.
-          </p>
+          <p>Muestra tus productos o servicios de forma profesional y facilita el contacto o la compra.</p>
         </article>
       </div>
     </div>
@@ -1054,40 +868,35 @@
     <div class="container">
       <h2 class="section-title reveal">Portafolio</h2>
       <p class="section-subtitle reveal">
-        Aquí puedes mostrar ejemplos de trabajos para que tus clientes vean
-        el nivel visual y estilo que ofreces.
+        Aquí puedes mostrar ejemplos de trabajos para que tus clientes vean el nivel visual y estilo que ofreces.
       </p>
 
       <div class="portfolio-grid">
-        <article class="project reveal">
-          <div class="project-thumb"></div>
+        <article class="project project-photo reveal">
+          <div class="project-thumb project-thumb-photo">
+            <img src="fotografia.jpg" alt="Página para estudio fotográfico" />
+          </div>
           <div class="project-body">
-            <h3>Web para restaurante</h3>
-            <p>
-              Página elegante para menú, reservas, ubicación y contacto rápido.
-            </p>
-            <span class="tag-small">Restaurantes</span>
+            <h3>Página para estudio fotográfico</h3>
+            <p>Diseño visual y elegante para mostrar portafolio, servicios, contacto y presencia profesional online.</p>
+            <span class="tag-small">Fotografía</span>
           </div>
         </article>
 
         <article class="project reveal">
-          <div class="project-thumb"></div>
+          <div class="project-thumb project-thumb-demo project-thumb-demo-2"></div>
           <div class="project-body">
             <h3>Web para barbería</h3>
-            <p>
-              Diseño moderno con galería, precios, servicios y botón de reserva.
-            </p>
+            <p>Diseño moderno con galería, precios, servicios y botón de reserva.</p>
             <span class="tag-small">Barberías</span>
           </div>
         </article>
 
         <article class="project reveal">
-          <div class="project-thumb"></div>
+          <div class="project-thumb project-thumb-demo project-thumb-demo-3"></div>
           <div class="project-body">
             <h3>Landing para marca personal</h3>
-            <p>
-              Perfecta para freelancers, coaches o creadores que quieren verse pro.
-            </p>
+            <p>Perfecta para freelancers, coaches o creadores que quieren verse pro.</p>
             <span class="tag-small">Marca personal</span>
           </div>
         </article>
@@ -1099,57 +908,23 @@
     <div class="container">
       <h2 class="section-title reveal">Planes y precios</h2>
       <p class="section-subtitle reveal">
-        Cambia estos precios por los tuyos reales. Déjalos claros para que el cliente
-        entienda rápido qué incluye cada opción.
+        Cambia estos precios por los tuyos reales. Déjalos claros para que el cliente entienda rápido qué incluye cada opción.
       </p>
 
       <div class="pricing-grid">
         <article class="price-card reveal">
           <h3>Plan básico</h3>
-          <p class="price-desc">Para empezar con presencia profesional en internet.</p>
-          <div class="price">$99 <span>/ desde</span></div>
-
-          <div class="price-list">
-            <div>1 página principal</div>
-            <div>Diseño responsive</div>
-            <div>Botón de WhatsApp</div>
-            <div>Formulario de contacto</div>
-          </div>
-
-          <a class="btn btn-secondary btn-block" href="https://wa.me/34600111222" target="_blank">Solicitar</a>
+          <p>Para empezar con presencia profesional en internet.</p>
         </article>
 
-        <article class="price-card featured reveal">
-          <div class="badge">POPULAR</div>
+        <article class="price-card reveal">
           <h3>Plan premium</h3>
-          <p class="price-desc">Ideal para negocios que quieren verse más serios.</p>
-          <div class="price">$199 <span>/ desde</span></div>
-
-          <div class="price-list">
-            <div>Hasta 5 secciones</div>
-            <div>Diseño premium</div>
-            <div>WhatsApp + Instagram</div>
-            <div>Galería o portafolio</div>
-            <div>Formulario de contacto</div>
-          </div>
-
-          <a class="btn btn-primary btn-block" href="https://wa.me/34600111222" target="_blank">Elegir premium</a>
+          <p>Ideal para negocios que quieren verse más serios.</p>
         </article>
 
         <article class="price-card reveal">
           <h3>Plan negocio</h3>
-          <p class="price-desc">Para empresas o marcas que necesitan más contenido.</p>
-          <div class="price">$349 <span>/ desde</span></div>
-
-          <div class="price-list">
-            <div>Más secciones y extras</div>
-            <div>Catálogo o tienda básica</div>
-            <div>Diseño personalizado</div>
-            <div>Integración de redes</div>
-            <div>Mayor presencia profesional</div>
-          </div>
-
-          <a class="btn btn-secondary btn-block" href="https://wa.me/34600111222" target="_blank">Solicitar</a>
+          <p>Para empresas o marcas que necesitan más contenido.</p>
         </article>
       </div>
     </div>
@@ -1164,31 +939,19 @@
 
       <div class="testimonials-grid">
         <article class="testimonial reveal">
-          <div class="stars">★★★★★</div>
-          <p>
-            “Nos encantó el diseño. La página quedó moderna, rápida y mucho más profesional
-            que lo que teníamos antes.”
-          </p>
+          <p>“Nos encantó el diseño. La página quedó moderna, rápida y mucho más profesional que lo que teníamos antes.”</p>
           <strong>Laura Gómez</strong>
           <span>Negocio local</span>
         </article>
 
         <article class="testimonial reveal">
-          <div class="stars">★★★★★</div>
-          <p>
-            “La web nos ayudó a vernos mejor frente a nuestros clientes y a recibir más
-            mensajes por WhatsApp.”
-          </p>
+          <p>“La web nos ayudó a vernos mejor frente a nuestros clientes y a recibir más mensajes por WhatsApp.”</p>
           <strong>Daniel Ruiz</strong>
           <span>Emprendedor</span>
         </article>
 
         <article class="testimonial reveal">
-          <div class="stars">★★★★★</div>
-          <p>
-            “Muy buen trabajo, diseño limpio, moderno y justo lo que necesitábamos para
-            mostrar nuestros servicios.”
-          </p>
+          <p>“Muy buen trabajo, diseño limpio, moderno y justo lo que necesitábamos para mostrar nuestros servicios.”</p>
           <strong>María Torres</strong>
           <span>Marca personal</span>
         </article>
@@ -1206,10 +969,7 @@
       <div class="contact-grid">
         <div class="contact-info glass reveal">
           <h3>Hablemos de tu proyecto</h3>
-          <p>
-            Si quieres una página web moderna para tu negocio, escríbenos y te ayudamos
-            a crear una solución profesional y atractiva.
-          </p>
+          <p>Si quieres una página web moderna para tu negocio, escríbenos y te ayudamos a crear una solución profesional y atractiva.</p>
 
           <div class="contact-list">
             <div class="contact-item">WhatsApp: +34 600 111 222</div>
@@ -1217,18 +977,10 @@
             <div class="contact-item">Instagram: @tuusuario</div>
             <div class="contact-item">Facebook: /tuusuario</div>
           </div>
-
-          <div class="socials">
-            <a class="social-link" href="https://wa.me/34600111222" target="_blank">WhatsApp</a>
-            <a class="social-link" href="https://instagram.com/tuusuario" target="_blank">Instagram</a>
-            <a class="social-link" href="mailto:tuemail@correo.com">Correo</a>
-            <a class="social-link" href="https://facebook.com/tuusuario" target="_blank">Facebook</a>
-          </div>
         </div>
 
         <div class="contact-form glass reveal">
           <h3>Solicita tu página web</h3>
-
           <form class="form-grid" onsubmit="sendToWhatsApp(event)">
             <input class="input" id="name" type="text" placeholder="Tu nombre" required />
             <input class="input" id="business" type="text" placeholder="Tu negocio" required />
@@ -1245,13 +997,9 @@
     <div class="container">
       <div class="cta-box glass reveal">
         <h2>¿Listo para tener una web profesional?</h2>
-        <p>
-          Escríbenos hoy y te ayudamos a crear una página moderna, atractiva
-          y pensada para captar clientes.
-        </p>
-
+        <p>Escríbenos hoy y te ayudamos a crear una página moderna, atractiva y pensada para captar clientes.</p>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="https://wa.me/34600111222" target="_blank">Hablar por WhatsApp</a>
+          <a class="btn btn-primary" href="https://wa.me/34600111222" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>
           <a class="btn btn-secondary" href="mailto:tuemail@correo.com">Enviar correo</a>
         </div>
       </div>
@@ -1262,10 +1010,11 @@
     © 2026 Tu Website · Creamos páginas web modernas para negocios y emprendedores
   </footer>
 
-  <a href="https://wa.me/34600111222" class="whatsapp-float" target="_blank">WA</a>
+  <a href="https://wa.me/34600111222" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+  </a>
 
   <script>
-    // menú móvil
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
 
@@ -1279,44 +1028,17 @@
       });
     });
 
-    // animaciones al hacer scroll
     const reveals = document.querySelectorAll(".reveal");
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
         }
       });
-    }, {
-      threshold: 0.15
-    });
+    }, { threshold: 0.15 });
 
     reveals.forEach(el => observer.observe(el));
 
-    // parallax con mouse
-    const scene = document.getElementById("scene");
-    const layers = document.querySelectorAll(".parallax");
-
-    scene.addEventListener("mousemove", (e) => {
-      const x = e.clientX / window.innerWidth - 0.5;
-      const y = e.clientY / window.innerHeight - 0.5;
-
-      layers.forEach(layer => {
-        const speed = Number(layer.dataset.speed);
-        const moveX = x * speed;
-        const moveY = y * speed;
-        layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
-      });
-    });
-
-    scene.addEventListener("mouseleave", () => {
-      layers.forEach(layer => {
-        layer.style.transform = "translate(0px, 0px)";
-      });
-    });
-
-    // enviar formulario a WhatsApp
     function sendToWhatsApp(event) {
       event.preventDefault();
 
@@ -1326,20 +1048,16 @@
       const message = document.getElementById("message").value.trim();
 
       const text =
-        `Hola, quiero información sobre una página web.%0A%0A` +
-        `Nombre: ${encodeURIComponent(name)}%0A` +
-        `Negocio: ${encodeURIComponent(business)}%0A` +
-        `Teléfono: ${encodeURIComponent(phone)}%0A` +
-        `Mensaje: ${encodeURIComponent(message)}`;
+`Hola, quiero información sobre una página web.
+
+Nombre: ${name}
+Negocio: ${business}
+Teléfono: ${phone}
+Mensaje: ${message}`;
 
       const whatsappNumber = "34600111222";
-      window.open(`https://wa.me/${whatsappNumber}?text=${text}`, "_blank");
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank");
     }
   </script>
-
-<a href="https://wa.me/34600111222" target="_blank" class="whatsapp-float">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30">
-</a>
-
 </body>
 </html>
