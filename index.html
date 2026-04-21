@@ -10,32 +10,33 @@
   />
 
   <style>
-.whatsapp-float {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: 62px;
-  height: 62px;
-  border-radius: 50%;
-  background: #25D366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.22);
-  z-index: 9999;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+      z-index: 9999;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-.whatsapp-float:hover {
-  transform: scale(1.08);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.28);
-}
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+    }
 
-.whatsapp-float img {
-  width: 30px;
-  height: 30px;
-  display: block;
-}
+    .whatsapp-float img {
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -158,7 +159,6 @@
       width: 100%;
     }
 
-    /* NAV */
     .nav {
       position: fixed;
       inset: 0 0 auto 0;
@@ -225,7 +225,6 @@
     }
 
     .lang-btn {
-
       background: rgba(255,255,255,0.08);
       color: white;
       border: 1px solid rgba(255,255,255,0.12);
@@ -234,12 +233,16 @@
       cursor: pointer;
       font-weight: 800;
       transition: .25s ease;
-.lang-btn img {
-  width: 18px;
-  height: 12px;
-  object-fit: cover;
-  border-radius: 2px;
-}
+    }
+
+    .lang-btn img {
+      width: 18px;
+      height: 12px;
+      object-fit: cover;
+      border-radius: 2px;
+      display: inline-block;
+      margin-right: 6px;
+      vertical-align: middle;
     }
 
     .lang-btn:hover,
@@ -249,7 +252,6 @@
       color: #ffe600;
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       position: relative;
@@ -274,7 +276,9 @@
       filter: saturate(1.15) blur(1px);
       opacity: 0.95;
       will-change: transform;
-    }.wave1 {
+    }
+
+    .wave1 {
       height: 52%;
       bottom: -5%;
       background: linear-gradient(90deg, #ffe600 0%, #ff9f00 13%, #ff2f92 28%, #6a32ff 45%, #00b7ff 62%, #35f0d2 79%, #ffe600 100%);
@@ -475,7 +479,6 @@
       font-size: 0.92rem;
     }
 
-    /* CARDS */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -512,12 +515,13 @@
     .card h3 {
       font-size: 1.28rem;
       margin-bottom: 10px;
-    }.card p {
+    }
+
+    .card p {
       color: var(--muted);
       line-height: 1.65;
     }
 
-    /* PORTFOLIO */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -573,7 +577,6 @@
         inset 6px 6px 14px rgba(255,255,255,0.25);
     }
 
-    /* SOLO MODIFICADO EN PORTAFOLIO */
     .project.project-photo .project-thumb::before,
     .project.project-photo .project-thumb::after {
       display: none;
@@ -640,120 +643,6 @@
       color: rgba(255,255,255,0.88);
     }
 
-    /* PRICING */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .price-card {
-      position: relative;
-      padding: 30px;
-      border-radius: 28px;
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-    }
-
-    .price-card.featured {
-      transform: scale(1.03);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)),
-        rgba(8, 14, 35, 0.55);
-      border-color: rgba(255,255,255,0.20);
-    }
-
-    .badge {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--grad-2);
-      color: #111;
-      font-weight: 900;
-      font-size: 0.8rem;
-    }
-
-    .price-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-    }
-
-    .price-desc {
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .price {
-      font-size: 2.7rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-
-    .price span {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--muted-2);
-    }
-
-    .price-list {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .price-list div {
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.92);
-    }
-
-    /* TESTIMONIOS */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .testimonial {
-      padding: 28px;
-      border-radius: 26px;
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.18);
-    }
-
-    .stars {
-      margin-bottom: 16px;
-      color: #ffe600;
-      letter-spacing: 2px;
-    }
-
-    .testimonial p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
-    .testimonial strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .testimonial span {
-      color: var(--muted-2);
-      font-size: 0.92rem;
-    }
-
-    /* CONTACTO */
     .contact-grid {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -838,7 +727,8 @@
     .textarea {
       min-height: 140px;
       resize: vertical;
-    } /* CTA FINAL */
+    }
+
     .cta-box {
       padding: 42px;
       border-radius: 34px;
@@ -857,51 +747,13 @@
       line-height: 1.7;
     }
 
-    .cta-actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
+    .pricing-note {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 12px;
     }
 
-    /* FOOTER */
-    footer {
-      padding: 34px 0 42px;
-      text-align: center;
-      color: rgba(255,255,255,0.62);
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    /* BOTON WHATSAPP */
-    .whatsapp-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #25D366;
-      color: white;
-      font-weight: 900;
-      font-size: 24px;
-      box-shadow: 0 18px 30px rgba(0,0,0,0.28);
-      z-index: 1001;
-      transition: transform .25s ease;
-      overflow: hidden;
-    }
-
-    .whatsapp-float:hover {
-      transform: translateY(-4px) scale(1.03);
-    }
-
-    .whatsapp-float img {
-      width: 30px;
-      height: 30px;
-    }
-
-    /* SCROLL ANIMATION */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -913,7 +765,6 @@
       transform: translateY(0);
     }
 
-    /* PARALLAX */
     .parallax {
       transition: transform .12s linear;
       will-change: transform;
@@ -942,7 +793,6 @@
       100% { transform: translate(0, 0); }
     }
 
-    /* MOBILE */
     @media (max-width: 1024px) {
       .hero-grid,
       .contact-grid {
@@ -950,13 +800,10 @@
       }
 
       .grid-3,
-      .portfolio-grid,
-      .pricing-grid,
-      .testimonials-grid {
+      .portfolio-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      /* SOLO MODIFICADO EN PORTAFOLIO */
       .project-thumb-pos,
       .project-thumb-menu {
         height: 360px;
@@ -999,8 +846,6 @@
       .hero-card,
       .panel,
       .card,
-      .price-card,
-      .testimonial,
       .contact-info,
       .contact-form,
       .cta-box {
@@ -1009,8 +854,6 @@
 
       .grid-3,
       .portfolio-grid,
-      .pricing-grid,
-      .testimonials-grid,
       .stat-grid {
         grid-template-columns: 1fr;
       }
@@ -1028,7 +871,6 @@
       .orb3 { width: 72px; height: 72px; }
       .orb4 { width: 48px; height: 48px; }
 
-      /* SOLO MODIFICADO EN PORTAFOLIO */
       .project-thumb-photo {
         height: 260px;
         padding: 12px;
@@ -1064,26 +906,22 @@
         <a href="#servicios" data-i18n="navServicios">Servicios</a>
         <a href="#portfolio" data-i18n="navPortfolio">Portafolio</a>
         <a href="#precios" data-i18n="navPrecios">Precios</a>
-        <a href="#testimonios" data-i18n="navTestimonios">Testimonios</a>
         <a href="#contacto" data-i18n="navContacto">Contacto</a>
 
-        <div class="nav-links" id="navLinks">
-  <a href="#inicio" data-i18n="navInicio">Inicio</a>
-  <a href="#servicios" data-i18n="navServicios">Servicios</a>
-  <a href="#portfolio" data-i18n="navPortfolio">Portafolio</a>
-  <a href="#precios" data-i18n="navPrecios">Precios</a>
-  <a href="#testimonios" data-i18n="navTestimonios">Testimonios</a>
-  <a href="#contacto" data-i18n="navContacto">Contacto</a>
-
- <div class="lang-switch">
-  <button class="lang-btn active" onclick="setLanguage('es')">
-    <img src="https://flagcdn.com/w20/es.png"> ES
-  </button>
-  <button class="lang-btn" onclick="setLanguage('en')">
-    <img src="https://flagcdn.com/w20/gb.png"> EN
-  </button>
-</div>  
-</nav>
+        <div class="lang-switch">
+          <button class="lang-btn active" onclick="setLanguage('es')">
+            <img src="https://flagcdn.com/w20/es.png" alt="ES"> ES
+          </button>
+          <button class="lang-btn" onclick="setLanguage('en')">
+            <img src="https://flagcdn.com/w20/gb.png" alt="EN"> EN
+          </button>
+          <button class="lang-btn" onclick="setLanguage('pt')">
+            <img src="https://flagcdn.com/w20/pt.png" alt="PT"> PT
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <header class="hero" id="inicio">
     <div class="hero-bg" id="scene">
@@ -1110,16 +948,18 @@
             Diseñamos páginas web modernas, rápidas y profesionales para negocios,
             emprendedores y empresas que quieren verse mejor, transmitir confianza
             y conseguir más clientes por internet.
-          </p><div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/34600111222" target="_blank" data-i18n="heroBtnWhatsapp">WhatsApp</a>
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/353858835300" target="_blank" rel="noopener noreferrer" data-i18n="heroBtnWhatsapp">WhatsApp</a>
             <a class="btn btn-secondary" href="#portfolio" data-i18n="heroBtnWorks">Ver trabajos</a>
           </div>
 
           <div class="hero-contact">
-            <a class="chip" href="https://wa.me/34600111222" target="_blank" data-i18n="chipWhatsapp">WhatsApp</a>
-            <a class="chip" href="https://instagram.com/tuusuario" target="_blank" data-i18n="chipInstagram">Instagram</a>
-            <a class="chip" href="mailto:tuemail@correo.com" data-i18n="chipEmail">Correo</a>
-            <a class="chip" href="https://facebook.com/tuusuario" target="_blank" data-i18n="chipFacebook">Facebook</a>
+            <a class="chip" href="https://wa.me/353858835300" target="_blank" rel="noopener noreferrer" data-i18n="chipWhatsapp">WhatsApp</a>
+            <a class="chip" href="https://www.instagram.com/eugenio.antonio.9/" target="_blank" rel="noopener noreferrer" data-i18n="chipInstagram">Instagram</a>
+            <a class="chip" href="mailto:eaecrispin@outlook.com" data-i18n="chipEmail">Correo</a>
+            <a class="chip" href="https://www.facebook.com/eduardoantonio.eugeniocrispin.7/" target="_blank" rel="noopener noreferrer" data-i18n="chipFacebook">Facebook</a>
           </div>
         </div>
 
@@ -1198,8 +1038,7 @@
     <div class="container">
       <h2 class="section-title reveal" data-i18n="portfolioTitle">Portafolio</h2>
       <p class="section-subtitle reveal" data-i18n="portfolioSubtitle">
-        Aquí puedes mostrar ejemplos de trabajos para que tus clientes vean
-        el nivel visual y estilo que ofreces.
+        Descubre algunos de nuestros proyectos y propuestas digitales, creados para elevar la imagen de cada marca, conectar mejor con sus clientes y convertir su presencia online en una verdadera oportunidad de crecimiento.
       </p>
 
       <div class="portfolio-grid">
@@ -1241,99 +1080,20 @@
 
   <section class="section" id="precios">
     <div class="container">
-      <h2 class="section-title reveal" data-i18n="pricingTitle">Planes y precios</h2>
+      <h2 class="section-title reveal" data-i18n="pricingTitle">Planes, servicios y precios</h2>
       <p class="section-subtitle reveal" data-i18n="pricingSubtitle">
-        Cambia estos precios por los tuyos reales. Déjalos claros para que el cliente
-        entienda rápido qué incluye cada opción.
+        Cotización por WhatsApp.
       </p>
 
-      <div class="pricing-grid">
-        <article class="price-card reveal">
-          <h3 data-i18n="plan1Title">Plan básico</h3>
-          <p class="price-desc" data-i18n="plan1Desc">Para empezar con presencia profesional en internet.</p>
-          <div class="price">$299 <span data-i18n="priceFrom">/ desde</span></div>
-
-          <div class="price-list">
-            <div data-i18n="plan1Feat1">1 página principal</div>
-            <div data-i18n="plan1Feat2">Diseño responsive</div>
-            <div data-i18n="plan1Feat3">Botón de WhatsApp</div>
-            <div data-i18n="plan1Feat4">Formulario de contacto</div>
-          </div>
-
-          <a class="btn btn-secondary btn-block" href="https://wa.me/34600111222" target="_blank" data-i18n="requestBtn">Solicitar</a>
-        </article>
-
-        <article class="price-card featured reveal">
-          <div class="badge" data-i18n="popular">POPULAR</div>
-          <h3 data-i18n="plan2Title">Plan premium</h3>
-          <p class="price-desc" data-i18n="plan2Desc">Ideal para negocios que quieren verse más serios.</p>
-          <div class="price">$499 <span data-i18n="priceFrom">/ desde</span></div>
-
-          <div class="price-list">
-            <div data-i18n="plan2Feat1">Hasta 5 secciones</div>
-            <div data-i18n="plan2Feat2">Diseño premium</div>
-            <div data-i18n="plan2Feat3">WhatsApp + Instagram</div>
-            <div data-i18n="plan2Feat4">Galería o portafolio</div>
-            <div data-i18n="plan2Feat5">Formulario de contacto</div>
-          </div>
-
-          <a class="btn btn-primary btn-block" href="https://wa.me/34600111222" target="_blank" data-i18n="choosePremium">Elegir premium</a>
-        </article>
-
-        <article class="price-card reveal">
-          <h3 data-i18n="plan3Title">Plan negocio</h3>
-          <p class="price-desc" data-i18n="plan3Desc">Para empresas o marcas que necesitan más contenido.</p>
-          <div class="price">$599 <span data-i18n="priceFrom">/ desde</span></div><div class="price-list">
-            <div data-i18n="plan3Feat1">Más secciones y extras</div>
-            <div data-i18n="plan3Feat2">Catálogo o tienda básica</div>
-            <div data-i18n="plan3Feat3">Diseño personalizado</div>
-            <div data-i18n="plan3Feat4">Integración de redes</div>
-            <div data-i18n="plan3Feat5">Mayor presencia profesional</div>
-          </div>
-
-          <a class="btn btn-secondary btn-block" href="https://wa.me/34600111222" target="_blank" data-i18n="requestBtn">Solicitar</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="testimonios">
-    <div class="container">
-      <h2 class="section-title reveal" data-i18n="testimonialsTitle">Lo que dicen nuestros clientes</h2>
-      <p class="section-subtitle reveal" data-i18n="testimonialsSubtitle">
-        Puedes cambiar estos testimonios por reales cuando cierres tus primeros proyectos.
-      </p>
-
-      <div class="testimonials-grid">
-        <article class="testimonial reveal">
-          <div class="stars">★★★★★</div>
-          <p data-i18n="testimonial1Text">
-            “Nos encantó el diseño. La página quedó moderna, rápida y mucho más profesional
-            que lo que teníamos antes.”
-          </p>
-          <strong>Laura Gómez</strong>
-          <span data-i18n="testimonial1Role">Negocio local</span>
-        </article>
-
-        <article class="testimonial reveal">
-          <div class="stars">★★★★★</div>
-          <p data-i18n="testimonial2Text">
-            “La web nos ayudó a vernos mejor frente a nuestros clientes y a recibir más
-            mensajes por WhatsApp.”
-          </p>
-          <strong>Daniel Ruiz</strong>
-          <span data-i18n="testimonial2Role">Emprendedor</span>
-        </article>
-
-        <article class="testimonial reveal">
-          <div class="stars">★★★★★</div>
-          <p data-i18n="testimonial3Text">
-            “Muy buen trabajo, diseño limpio, moderno y justo lo que necesitábamos para
-            mostrar nuestros servicios.”
-          </p>
-          <strong>María Torres</strong>
-          <span data-i18n="testimonial3Role">Marca personal</span>
-        </article>
+      <div class="cta-box glass reveal">
+        <h2 data-i18n="discountTitle">25% de descuento</h2>
+        <p data-i18n="discountText">
+          Todo el mes de mayo, junio y julio tenemos un 25% de descuento
+          por promoción de lanzamiento.
+        </p>
+        <p class="pricing-note" data-i18n="pricingWhatsappOnly">
+          Cotización por WhatsApp.
+        </p>
       </div>
     </div>
   </section>
@@ -1342,39 +1102,39 @@
     <div class="container">
       <h2 class="section-title reveal" data-i18n="contactTitle">Contacto</h2>
       <p class="section-subtitle reveal" data-i18n="contactSubtitle">
-        Cambia tus datos y deja esta sección lista para que te escriban clientes.
+        Estamos listos para ayudarte a crear una página web moderna, estratégica y alineada con la imagen de tu negocio. Cuéntanos tu idea y te responderemos con una propuesta clara y profesional.
       </p>
 
       <div class="contact-grid">
         <div class="contact-info glass reveal">
           <h3 data-i18n="contactBoxTitle">Hablemos de tu proyecto</h3>
           <p data-i18n="contactBoxText">
-            Si quieres una página web moderna para tu negocio, escríbenos y te ayudamos
-            a crear una solución profesional y atractiva.
+            Si quieres una web que transmita confianza, refleje el valor de tu marca y te ayude a conseguir más clientes, estaremos encantados de ayudarte. Escríbenos y conversemos sobre la mejor solución para tu negocio.
           </p>
 
           <div class="contact-list">
-            <div class="contact-item" data-i18n="contactWhatsapp">WhatsApp: +34 600 111 222</div>
-            <div class="contact-item" data-i18n="contactEmail">Correo: tuemail@correo.com</div>
-            <div class="contact-item" data-i18n="contactInstagram">Instagram: @tuusuario</div>
-            <div class="contact-item" data-i18n="contactFacebook">Facebook: /tuusuario</div>
+            <div class="contact-item" data-i18n="contactWhatsapp">WhatsApp: +353 858 835 300</div>
+            <div class="contact-item" data-i18n="contactEmail">Correo: eaecrispin@outlook.com</div>
+            <div class="contact-item" data-i18n="contactInstagram">Instagram: Antonio Eugenio Crispin</div>
+            <div class="contact-item" data-i18n="contactFacebook">Facebook: Antonio Eugenio Crispin</div>
           </div>
 
           <div class="socials">
-            <a class="social-link" href="https://wa.me/34600111222" target="_blank" data-i18n="chipWhatsapp">WhatsApp</a>
-            <a class="social-link" href="https://instagram.com/tuusuario" target="_blank" data-i18n="chipInstagram">Instagram</a>
-            <a class="social-link" href="mailto:tuemail@correo.com" data-i18n="chipEmail">Correo</a>
-            <a class="social-link" href="https://facebook.com/tuusuario" target="_blank" data-i18n="chipFacebook">Facebook</a>
+            <a class="social-link" href="https://wa.me/353858835300" target="_blank" rel="noopener noreferrer" data-i18n="chipWhatsapp">WhatsApp</a>
+            <a class="social-link" href="https://www.instagram.com/eugenio.antonio.9/" target="_blank" rel="noopener noreferrer" data-i18n="chipInstagram">Instagram</a>
+            <a class="social-link" href="mailto:eaecrispin@outlook.com" data-i18n="chipEmail">Correo</a>
+            <a class="social-link" href="https://www.facebook.com/eduardoantonio.eugeniocrispin.7/" target="_blank" rel="noopener noreferrer" data-i18n="chipFacebook">Facebook</a>
           </div>
         </div>
 
         <div class="contact-form glass reveal">
-          <h3 data-i18n="formTitle">Solicita tu página web</h3>
+          <h3 data-i18n="formTitle">Solicita tu propuesta web</h3>
 
           <form class="form-grid" onsubmit="sendToWhatsApp(event)">
             <input class="input" id="name" type="text" placeholder="Tu nombre" data-i18n-placeholder="namePlaceholder" required />
             <input class="input" id="business" type="text" placeholder="Tu negocio" data-i18n-placeholder="businessPlaceholder" required />
             <input class="input" id="phone" type="text" placeholder="Tu teléfono" data-i18n-placeholder="phonePlaceholder" required />
+            <input class="input" id="country" type="text" placeholder="¿De qué país nos escribes?" data-i18n-placeholder="countryPlaceholder" required />
             <textarea class="textarea" id="message" placeholder="Cuéntanos qué tipo de página necesitas" data-i18n-placeholder="messagePlaceholder"></textarea>
             <button class="btn btn-primary btn-block" type="submit" data-i18n="sendWhatsapp">Enviar por WhatsApp</button>
           </form>
@@ -1386,25 +1146,12 @@
   <section class="section">
     <div class="container">
       <div class="cta-box glass reveal">
-        <h2 data-i18n="ctaTitle">¿Listo para tener una web profesional?</h2>
-        <p data-i18n="ctaText">
-          Escríbenos hoy y te ayudamos a crear una página moderna, atractiva
-          y pensada para captar clientes.
-        </p>
-
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="https://wa.me/34600111222" target="_blank" data-i18n="ctaBtn1">Hablar por WhatsApp</a>
-          <a class="btn btn-secondary" href="mailto:tuemail@correo.com" data-i18n="ctaBtn2">Enviar correo</a>
-        </div>
+        <h2 data-i18n="ctaTitle">¿Listo para impulsar tu presencia online?</h2>
       </div>
     </div>
   </section>
 
-  <footer data-i18n="footerText">
-    © 2026 Tu Website · Creamos páginas web modernas para negocios y emprendedores
-  </footer>
-
-  <a href="https://wa.me/34600111222" target="_blank" class="whatsapp-float">
+  <a href="https://wa.me/353858835300" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
 
@@ -1419,7 +1166,6 @@
         navServicios: "Servicios",
         navPortfolio: "Portafolio",
         navPrecios: "Precios",
-        navTestimonios: "Testimonios",
         navContacto: "Contacto",
 
         heroTag: "AGENCIA DIGITAL · DISEÑO WEB PREMIUM",
@@ -1453,7 +1199,7 @@
         service3Text: "Muestra tus productos o servicios de forma profesional y facilita el contacto o la compra.",
 
         portfolioTitle: "Portafolio",
-        portfolioSubtitle: "Aquí puedes mostrar ejemplos de trabajos para que tus clientes vean el nivel visual y estilo que ofreces.",
+        portfolioSubtitle: "Descubre algunos de nuestros proyectos y propuestas digitales, creados para elevar la imagen de cada marca, conectar mejor con sus clientes y convertir su presencia online en una verdadera oportunidad de crecimiento.",
         project1Title: "Página para estudio fotográfico",
         project1Text: "Diseño visual y elegante para mostrar portafolio, servicios, contacto y una presencia profesional online.",
         project1Tag: "Fotografía",
@@ -1464,74 +1210,37 @@
         project3Text: "Una solución ideal para que tu negocio tenga su propia página web y un menú interactivo donde tus clientes puedan ver productos y hacer pedidos de forma más rápida.",
         project3Tag: "Menú interactivo",
 
-        pricingTitle: "Planes y precios",
-        pricingSubtitle: "Cambia estos precios por los tuyos reales. Déjalos claros para que el cliente entienda rápido qué incluye cada opción.",
-        plan1Title: "Plan básico",
-        plan1Desc: "Para empezar con presencia profesional en internet.",
-        plan2Title: "Plan premium",
-        plan2Desc: "Ideal para negocios que quieren verse más serios.",
-        plan3Title: "Plan negocio",
-        plan3Desc: "Para empresas o marcas que necesitan más contenido.",
-        popular: "POPULAR",
-        requestBtn: "Solicitar",
-        choosePremium: "Elegir premium",
-        priceFrom: "/ desde",
-
-        plan1Feat1: "1 página principal",
-        plan1Feat2: "Diseño responsive",
-        plan1Feat3: "Botón de WhatsApp",
-        plan1Feat4: "Formulario de contacto",
-
-        plan2Feat1: "Hasta 5 secciones",
-        plan2Feat2: "Diseño premium",
-        plan2Feat3: "WhatsApp + Instagram",
-        plan2Feat4: "Galería o portafolio",
-        plan2Feat5: "Formulario de contacto",
-
-        plan3Feat1: "Más secciones y extras",
-        plan3Feat2: "Catálogo o tienda básica",
-        plan3Feat3: "Diseño personalizado",
-        plan3Feat4: "Integración de redes",
-        plan3Feat5: "Mayor presencia profesional",
-
-        testimonialsTitle: "Lo que dicen nuestros clientes",
-        testimonialsSubtitle: "Puedes cambiar estos testimonios por reales cuando cierres tus primeros proyectos.",
-
-        testimonial1Text: "“Nos encantó el diseño. La página quedó moderna, rápida y mucho más profesional que lo que teníamos antes.”",
-        testimonial1Role: "Negocio local",
-        testimonial2Text: "“La web nos ayudó a vernos mejor frente a nuestros clientes y a recibir más mensajes por WhatsApp.”",
-        testimonial2Role: "Emprendedor",
-        testimonial3Text: "“Muy buen trabajo, diseño limpio, moderno y justo lo que necesitábamos para mostrar nuestros servicios.”",
-        testimonial3Role: "Marca personal",
+        pricingTitle: "Planes, servicios y precios",
+        pricingSubtitle: "Cotización por WhatsApp.",
+        discountTitle: "25% de descuento",
+        discountText: "Todo el mes de mayo, junio y julio tenemos un 25% de descuento por promoción de lanzamiento.",
+        pricingWhatsappOnly: "Cotización por WhatsApp.",
 
         contactTitle: "Contacto",
-        contactSubtitle: "Cambia tus datos y deja esta sección lista para que te escriban clientes.",
+        contactSubtitle: "Estamos listos para ayudarte a crear una página web moderna, estratégica y alineada con la imagen de tu negocio. Cuéntanos tu idea y te responderemos con una propuesta clara y profesional.",
         contactBoxTitle: "Hablemos de tu proyecto",
-        contactBoxText: "Si quieres una página web moderna para tu negocio, escríbenos y te ayudamos a crear una solución profesional y atractiva.",
-        formTitle: "Solicita tu página web",
+        contactBoxText: "Si quieres una web que transmita confianza, refleje el valor de tu marca y te ayude a conseguir más clientes, estaremos encantados de ayudarte. Escríbenos y conversemos sobre la mejor solución para tu negocio.",
+        formTitle: "Solicita tu propuesta web",
 
-        contactWhatsapp: "WhatsApp: +34 600 111 222",
-        contactEmail: "Correo: tuemail@correo.com",
-        contactInstagram: "Instagram: @tuusuario",
-        contactFacebook: "Facebook: /tuusuario",
+        contactWhatsapp: "WhatsApp: +353 858 835 300",
+        contactEmail: "Correo: eaecrispin@outlook.com",
+        contactInstagram: "Instagram: Antonio Eugenio Crispin",
+        contactFacebook: "Facebook: Antonio Eugenio Crispin",
 
         namePlaceholder: "Tu nombre",
         businessPlaceholder: "Tu negocio",
         phonePlaceholder: "Tu teléfono",
+        countryPlaceholder: "¿De qué país nos escribes?",
         messagePlaceholder: "Cuéntanos qué tipo de página necesitas",
         sendWhatsapp: "Enviar por WhatsApp",
 
-        ctaTitle: "¿Listo para tener una web profesional?",
-        ctaText: "Escríbenos hoy y te ayudamos a crear una página moderna, atractiva y pensada para captar clientes.",
-        ctaBtn1: "Hablar por WhatsApp",
-        ctaBtn2: "Enviar correo",
-
-        footerText: "© 2026 Tu Website · Creamos páginas web modernas para negocios y emprendedores",
+        ctaTitle: "¿Listo para impulsar tu presencia online?",
 
         whatsappMessageIntro: "Hola, quiero información sobre una página web.",
         formName: "Nombre",
         formBusiness: "Negocio",
         formPhone: "Teléfono",
+        formCountry: "País",
         formMessage: "Mensaje"
       },
 
@@ -1544,7 +1253,6 @@
         navServicios: "Services",
         navPortfolio: "Portfolio",
         navPrecios: "Pricing",
-        navTestimonios: "Testimonials",
         navContacto: "Contact",
 
         heroTag: "DIGITAL AGENCY · PREMIUM WEB DESIGN",
@@ -1578,7 +1286,7 @@
         service3Text: "Show your products or services professionally and make contact or purchase easier.",
 
         portfolioTitle: "Portfolio",
-        portfolioSubtitle: "Here you can show examples of your work so clients can see the visual level and style you offer.",
+        portfolioSubtitle: "Discover some of our projects and digital proposals, created to elevate each brand’s image, connect better with its audience and turn its online presence into a real growth opportunity.",
         project1Title: "Photography studio website",
         project1Text: "Elegant visual design to showcase portfolio, services, contact details and a professional online presence.",
         project1Tag: "Photography",
@@ -1589,73 +1297,125 @@
         project3Text: "An ideal solution for your business to have its own website and an interactive menu where customers can browse products and place orders more easily.",
         project3Tag: "Interactive menu",
 
-        pricingTitle: "Plans and pricing",
-        pricingSubtitle: "Replace these prices with your real ones. Keep them clear so the client quickly understands what each option includes.",
-        plan1Title: "Basic plan",
-        plan1Desc: "To start with a professional online presence.",
-        plan2Title: "Premium plan",
-        plan2Desc: "Ideal for businesses that want to look more professional.",
-        plan3Title: "Business plan",
-        plan3Desc: "For companies or brands that need more content.",
-        popular: "POPULAR",
-        requestBtn: "Request",
-        choosePremium: "Choose premium",
-        priceFrom: "/ from",
-
-        plan1Feat1: "1 main page",
-        plan1Feat2: "Responsive design",
-        plan1Feat3: "WhatsApp button",
-        plan1Feat4: "Contact form",
-
-        plan2Feat1: "Up to 5 sections",
-        plan2Feat2: "Premium design",
-        plan2Feat3: "WhatsApp + Instagram",
-        plan2Feat4: "Gallery or portfolio",
-        plan2Feat5: "Contact form",
-
-        plan3Feat1: "More sections and extras",
-        plan3Feat2: "Catalog or basic store",
-        plan3Feat3: "Custom design",
-        plan3Feat4: "Social media integration",
-        plan3Feat5: "Stronger professional presence",
-
-        testimonialsTitle: "What our clients say",
-        testimonialsSubtitle: "You can replace these with real testimonials once you close your first projects.",
-
-        testimonial1Text: "“We loved the design. The website turned out modern, fast and much more professional than what we had before.”",
-        testimonial1Role: "Local business",
-        testimonial2Text: "“The website helped us look better in front of our clients and receive more WhatsApp messages.”",
-        testimonial2Role: "Entrepreneur",
-        testimonial3Text: "“Very good work, clean and modern design, exactly what we needed to show our services.”",
-        testimonial3Role: "Personal brand",
+        pricingTitle: "Plans, services and pricing",
+        pricingSubtitle: "Quotation via WhatsApp.",
+        discountTitle: "25% discount",
+        discountText: "Throughout May, June and July we have a 25% discount as a launch promotion.",
+        pricingWhatsappOnly: "Quotation via WhatsApp.",
 
         contactTitle: "Contact",
-        contactSubtitle: "Update your details and leave this section ready for clients to contact you.",
+        contactSubtitle: "We are ready to help you create a modern, strategic website aligned with your business image. Tell us about your idea and we will reply with a clear and professional proposal.",
         contactBoxTitle: "Let's talk about your project",
-        contactBoxText: "If you want a modern website for your business, write to us and we will help you create a professional and attractive solution.",
-        formTitle: "Request your website",contactWhatsapp: "WhatsApp: +34 600 111 222",
-        contactEmail: "Email: tuemail@correo.com",
-        contactInstagram: "Instagram: @tuusuario",
-        contactFacebook: "Facebook: /tuusuario",
+        contactBoxText: "If you want a website that builds trust, reflects the value of your brand and helps you win more clients, we will be delighted to help. Write to us and let’s discuss the best solution for your business.",
+        formTitle: "Request your web proposal",
+
+        contactWhatsapp: "WhatsApp: +353 858 835 300",
+        contactEmail: "Email: eaecrispin@outlook.com",
+        contactInstagram: "Instagram: Antonio Eugenio Crispin",
+        contactFacebook: "Facebook: Antonio Eugenio Crispin",
 
         namePlaceholder: "Your name",
         businessPlaceholder: "Your business",
         phonePlaceholder: "Your phone number",
+        countryPlaceholder: "Which country are you writing from?",
         messagePlaceholder: "Tell us what kind of website you need",
         sendWhatsapp: "Send via WhatsApp",
 
-        ctaTitle: "Ready to have a professional website?",
-        ctaText: "Write to us today and we will help you create a modern, attractive website designed to capture clients.",
-        ctaBtn1: "Chat on WhatsApp",
-        ctaBtn2: "Send email",
-
-        footerText: "© 2026 Tu Website · We create modern websites for businesses and entrepreneurs",
+        ctaTitle: "Ready to elevate your online presence?",
 
         whatsappMessageIntro: "Hello, I would like information about a website.",
         formName: "Name",
         formBusiness: "Business",
         formPhone: "Phone",
+        formCountry: "Country",
         formMessage: "Message"
+      },
+
+      pt: {
+        pageTitle: "Criamos os seus sites",
+        metaDescription: "Criamos sites modernos, rápidos e profissionais para negócios, empreendedores e empresas.",
+
+        menu: "Menu",
+        navInicio: "Início",
+        navServicios: "Serviços",
+        navPortfolio: "Portfólio",
+        navPrecios: "Preços",
+        navContacto: "Contacto",
+
+        heroTag: "AGÊNCIA DIGITAL · DESIGN WEB PREMIUM",
+        heroTitle: 'Criamos os seus <span class="gradient-text">sites</span>',
+        heroText: "Criamos sites modernos, rápidos e profissionais para negócios, empreendedores e empresas que querem ter uma melhor imagem, transmitir confiança e conseguir mais clientes online.",
+        heroBtnWhatsapp: "WhatsApp",
+        heroBtnWorks: "Ver trabalhos",
+
+        chipWhatsapp: "WhatsApp",
+        chipInstagram: "Instagram",
+        chipEmail: "Email",
+        chipFacebook: "Facebook",
+
+        whatWeDoTitle: "O que fazemos",
+        what1: "Landing pages para captar clientes",
+        what2: "Sites para negócios, empresas e marcas pessoais",
+        what3: "Lojas online e catálogos",
+        what4: "Integração com WhatsApp, Instagram e formulários",
+
+        statResponsive: "Responsivo",
+        statDesign: "Design",
+        statOnline: "Online",
+
+        servicesTitle: "Serviços que oferecemos",
+        servicesSubtitle: "Criamos soluções web com design atrativo e uma estrutura pensada para transformar visitas em clientes.",
+        service1Title: "Landing pages",
+        service1Text: "Páginas focadas em vender serviços, captar leads e gerar mensagens através do WhatsApp ou formulários.",
+        service2Title: "Sites para negócios",
+        service2Text: "Designs para barbearias, restaurantes, advogados, médicos, lojas, marcas pessoais e muito mais.",
+        service3Title: "Lojas e catálogos",
+        service3Text: "Mostre os seus produtos ou serviços de forma profissional e facilite o contacto ou a compra.",
+
+        portfolioTitle: "Portfólio",
+        portfolioSubtitle: "Descubra alguns dos nossos projetos e propostas digitais, criados para elevar a imagem de cada marca, conectar melhor com os seus clientes e transformar a sua presença online numa verdadeira oportunidade de crescimento.",
+        project1Title: "Site para estúdio fotográfico",
+        project1Text: "Design visual e elegante para mostrar portfólio, serviços, contacto e uma presença profissional online.",
+        project1Tag: "Fotografia",
+        project2Title: "Ponto de venda para restaurantes ou negócios de comida",
+        project2Text: "Sistema pensado para que o seu restaurante tenha mais controlo, registe vendas rapidamente e seja melhor administrado todos os dias.",
+        project2Tag: "Ponto de venda",
+        project3Title: "Menu interativo para restaurantes e negócios de comida",
+        project3Text: "Uma solução ideal para que o seu negócio tenha o seu próprio site e um menu interativo onde os clientes possam ver produtos e fazer pedidos mais rapidamente.",
+        project3Tag: "Menu interativo",
+
+        pricingTitle: "Planos, serviços e preços",
+        pricingSubtitle: "Orçamento por WhatsApp.",
+        discountTitle: "25% de desconto",
+        discountText: "Durante os meses de maio, junho e julho temos 25% de desconto por promoção de lançamento.",
+        pricingWhatsappOnly: "Orçamento por WhatsApp.",
+
+        contactTitle: "Contacto",
+        contactSubtitle: "Estamos prontos para ajudar a criar um site moderno, estratégico e alinhado com a imagem do seu negócio. Conte-nos a sua ideia e responderemos com uma proposta clara e profissional.",
+        contactBoxTitle: "Vamos falar sobre o seu projeto",
+        contactBoxText: "Se quer um site que transmita confiança, reflita o valor da sua marca e o ajude a conseguir mais clientes, teremos todo o gosto em ajudar. Escreva-nos e vamos conversar sobre a melhor solução para o seu negócio.",
+        formTitle: "Peça a sua proposta web",
+
+        contactWhatsapp: "WhatsApp: +353 858 835 300",
+        contactEmail: "Email: eaecrispin@outlook.com",
+        contactInstagram: "Instagram: Antonio Eugenio Crispin",
+        contactFacebook: "Facebook: Antonio Eugenio Crispin",
+
+        namePlaceholder: "O seu nome",
+        businessPlaceholder: "O seu negócio",
+        phonePlaceholder: "O seu telefone",
+        countryPlaceholder: "De que país você está nos escrevendo?",
+        messagePlaceholder: "Conte-nos que tipo de site precisa",
+        sendWhatsapp: "Enviar por WhatsApp",
+
+        ctaTitle: "Pronto para elevar a sua presença online?",
+
+        whatsappMessageIntro: "Olá, quero informações sobre um site.",
+        formName: "Nome",
+        formBusiness: "Negócio",
+        formPhone: "Telefone",
+        formCountry: "País",
+        formMessage: "Mensagem"
       }
     };
 
@@ -1695,7 +1455,6 @@
       if (activeBtn) activeBtn.classList.add("active");
     }
 
-    // menú móvil
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
 
@@ -1709,7 +1468,6 @@
       });
     });
 
-    // animaciones al hacer scroll
     const reveals = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver((entries) => {
@@ -1724,7 +1482,6 @@
 
     reveals.forEach(el => observer.observe(el));
 
-    // parallax con mouse
     const scene = document.getElementById("scene");
     const layers = document.querySelectorAll(".parallax");
 
@@ -1746,7 +1503,6 @@
       });
     });
 
-    // enviar formulario a WhatsApp
     function sendToWhatsApp(event) {
       event.preventDefault();
 
@@ -1756,6 +1512,7 @@
       const name = document.getElementById("name").value.trim();
       const business = document.getElementById("business").value.trim();
       const phone = document.getElementById("phone").value.trim();
+      const country = document.getElementById("country").value.trim();
       const message = document.getElementById("message").value.trim();
 
       const text =
@@ -1763,18 +1520,16 @@
         `${t.formName}: ${name}\n` +
         `${t.formBusiness}: ${business}\n` +
         `${t.formPhone}: ${phone}\n` +
+        `${t.formCountry}: ${country}\n` +
         `${t.formMessage}: ${message}`;
 
-      const whatsappNumber = "34600111222";
+      const whatsappNumber = "353858835300";
       window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank");
     }
 
-    // idioma por defecto
     const savedLanguage = localStorage.getItem("lang") || "es";
     setLanguage(savedLanguage);
   </script>
-<a href="https://wa.me/34600111222" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-</a>
+
 </body>
 </html>
